@@ -1,6 +1,9 @@
 <template>
 	<div>
-		{{creditCardTypes}}
+		<p>Unique Card Types:</p>
+		{{ creditCardTypes }}
+		<p>Unique Credit Ratings:</p>
+		{{ creditCardRatings }}
 		<CreditCard v-for="card in creditCards" v-bind="card"/>
 		<pre>{{ creditCards }}</pre>
 	</div>
@@ -21,6 +24,7 @@
 		data() {
 			return {
 				creditCards: {},
+				creditCardRatings: [],
 				creditCardTypes: []
 			};
 		},
@@ -34,6 +38,12 @@
 						// self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))]; // doesn't work in IE11
 						self.creditCardTypes = response.data
 							.map(card => card.card_type)
+							.filter(
+								(value, index, self) =>
+									self.indexOf(value) === index
+							);
+						self.creditCardRatings = response.data
+							.map(card => card.credit_rating)
 							.filter(
 								(value, index, self) =>
 									self.indexOf(value) === index

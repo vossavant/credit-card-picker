@@ -2,8 +2,8 @@
 	<div class="home">
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
 		<ul>
-			<li v-for="item in status" :key="item.id">
-				<pre>{{ item }}</pre>
+			<li v-for="card in status">
+				<pre>{{ card.card_type }}</pre>
 			</li>
 		</ul>
 		<!-- <pre>{{ status }}</pre> -->

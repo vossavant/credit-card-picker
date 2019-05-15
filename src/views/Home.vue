@@ -1,7 +1,12 @@
 <template>
 	<div class="home">
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
-		<pre>{{ status }}</pre>
+		<ul>
+			<li v-for="item in status" :key="item.id">
+				<pre>{{ item }}</pre>
+			</li>
+		</ul>
+		<!-- <pre>{{ status }}</pre> -->
 	</div>
 </template>
 
@@ -16,7 +21,7 @@
 			HelloWorld
 		},
 		created() {
-			this.loadJSON();
+			this.loadCreditCardData();
 		},
 		data() {
 			return {
@@ -24,19 +29,17 @@
 			};
 		},
 		methods: {
-			loadJSON() {
-				this.status = "Loading JSON...";
+			loadCreditCardData() {
 				let self = this;
 				axios
 					.get(
-						// "https://jsonplaceholder.typicode.com/posts/2"
 						'http://localhost:8080/credit-cards.json'
 					)
 					.then(function(response) {
 						self.status = response.data;
 					})
 					.catch(function(error) {
-						self.status = "An error occurred: " + error;
+						self.status = "Something went wrong while fetching the available credit cards: " + error;
 					});
 			}
 		}

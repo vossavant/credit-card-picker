@@ -3,7 +3,7 @@
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
 		<ul>
 			<li v-for="card in creditCards">
-				<pre>{{ card.card_type }}</pre>
+				<CreditCard v-bind="card" />
 			</li>
 		</ul>
 		<pre>{{ creditCards }}</pre>
@@ -12,12 +12,14 @@
 
 <script>
 	// @ is an alias to /src
+	import CreditCard from "@/components/CreditCard.vue";
 	import HelloWorld from "@/components/HelloWorld.vue";
 	const axios = require('axios');
 
 	export default {
 		name: "home",
 		components: {
+			CreditCard,
 			HelloWorld
 		},
 		created() {

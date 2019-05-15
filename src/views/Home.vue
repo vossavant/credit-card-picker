@@ -2,11 +2,11 @@
 	<div class="home">
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
 		<ul>
-			<li v-for="card in status">
+			<li v-for="card in creditCards">
 				<pre>{{ card.card_type }}</pre>
 			</li>
 		</ul>
-		<!-- <pre>{{ status }}</pre> -->
+		<pre>{{ creditCards }}</pre>
 	</div>
 </template>
 
@@ -25,7 +25,7 @@
 		},
 		data() {
 			return {
-				status: ""
+				creditCards: {}
 			};
 		},
 		methods: {
@@ -36,10 +36,10 @@
 						'http://localhost:8080/credit-cards.json'
 					)
 					.then(function(response) {
-						self.status = response.data;
+						self.creditCards = response.data;
 					})
 					.catch(function(error) {
-						self.status = "Something went wrong while fetching the available credit cards: " + error;
+						self.creditCards = "Something went wrong while fetching the available credit cards: " + error;
 					});
 			}
 		}

@@ -4,7 +4,7 @@
 		{{ creditCardTypes }}
 		<p>Unique Credit Ratings:</p>
 		{{ creditCardRatings }}
-		<CreditCard v-for="card in creditCards" v-bind="card"/>
+		<CreditCard v-for="card in creditCards" v-bind="card" />
 		<pre>{{ creditCards }}</pre>
 	</div>
 </template>
@@ -35,7 +35,7 @@
 					.get("http://localhost:8080/credit-cards.json")
 					.then(function(response) {
 						self.creditCards = response.data;
-						// self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))]; // doesn't work in IE11
+						// self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))]; // preferred, but doesn't work in IE11
 						self.creditCardTypes = response.data
 							.map(card => card.card_type)
 							.filter(

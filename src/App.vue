@@ -1,30 +1,42 @@
 <template>
-	<div id="app">
-		<div id="nav">
-			<router-link to="/">Home</router-link>|
-			<router-link to="/about">About</router-link>
-		</div>
-		<router-view/>
+	<div>
+		<CreditCard v-for="card in creditCards" v-bind="card" />
+		<pre>{{ creditCards }}</pre>
 	</div>
 </template>
 
-<style>
-	#app {
-		font-family: "Avenir", Helvetica, Arial, sans-serif;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		color: #2c3e50;
-	}
-	#nav {
-		padding: 30px;
-	}
+<script>
+	// @ is an alias to /src
+	import CreditCard from "@/components/CreditCard.vue";
+	const axios = require('axios');
 
-	#nav a {
-		font-weight: bold;
-		color: #2c3e50;
-	}
-
-	#nav a.router-link-exact-active {
-		color: #42b983;
-	}
-</style>
+	export default {
+		name: "home",
+		components: {
+			CreditCard
+		},
+		created() {
+			this.loadCreditCardData();
+		},
+		data() {
+			return {
+				creditCards: {}
+			};
+		},
+		methods: {
+			loadCreditCardData() {
+				let self = this;
+				axios
+					.get(
+						'http://localhost:8080/credit-cards.json'
+					)
+					.then(function(response) {
+						self.creditCards = response.data;
+					})
+					.catch(function(error) {
+						self.creditCards = "Something went wrong while fetching the available credit cards: " + error;
+					});
+			}
+		}
+	};
+</script>

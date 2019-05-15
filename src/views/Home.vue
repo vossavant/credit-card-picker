@@ -1,11 +1,6 @@
 <template>
-	<div class="home">
-		<HelloWorld msg="Welcome to Your Vue.js App"/>
-		<ul>
-			<li v-for="card in creditCards">
-				<CreditCard v-bind="card" />
-			</li>
-		</ul>
+	<div>
+		<CreditCard v-for="card in creditCards" v-bind="card" />
 		<pre>{{ creditCards }}</pre>
 	</div>
 </template>
@@ -13,14 +8,12 @@
 <script>
 	// @ is an alias to /src
 	import CreditCard from "@/components/CreditCard.vue";
-	import HelloWorld from "@/components/HelloWorld.vue";
 	const axios = require('axios');
 
 	export default {
 		name: "home",
 		components: {
-			CreditCard,
-			HelloWorld
+			CreditCard
 		},
 		created() {
 			this.loadCreditCardData();

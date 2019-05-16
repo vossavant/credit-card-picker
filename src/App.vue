@@ -25,20 +25,20 @@
 			</div>
 		</div>
 		<div>
-			<pre>{{ creditCards }}</pre>
-			<CreditCard v-show="selectedType === card.card_type" v-for="card in creditCards" v-bind="card" />
+			<CreditCardWrap v-show="selectedType === card.card_type && selectedRating === card.credit_rating" v-for="card in creditCards" v-bind="card" />
+			<pre>{{ creditCards[1] }}</pre>
 		</div>
 	</div>
 </template>
 
 <script>
 	// @ is an alias to /src
-	import CreditCard from "@/components/CreditCard.vue";
+	import CreditCardWrap from "@/components/CreditCardWrap.vue";
 	const axios = require("axios");
 
 	export default {
 		components: {
-			CreditCard
+			CreditCardWrap
 		},
 		created() {
 			this.loadCreditCardData();
@@ -60,6 +60,7 @@
 				let self = this;
 				axios
 					.get("http://localhost:8080/credit-cards.json")
+					// .get("https://www.fool.com/the-ascent/api/creditcardrecommendations/")
 					.then(function(response) {
 						self.creditCards = response.data;
 						// self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))]; // preferred, but doesn't work in IE11

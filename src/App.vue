@@ -61,3 +61,7 @@
 		}
 	};
 </script>
+
+<style lang="scss">
+	@import 'scss/base.scss';
+</style>

@@ -1,0 +1,39 @@
+@import "variables.scss";
+
+body {
+    color: $ascent_primary_text;
+    font: 1rem/1.25 $ascent_font_stack;
+} 
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $ascent_primary_heading;
+}
+
+h1 {
+    font: $ascent_heading_h1;
+}
+
+h2 {
+    font: $ascent_heading_h2;
+}
+
+h3 {
+    font: $ascent_heading_h3;
+}
+
+h4 {
+    font: $ascent_heading_h4;
+}
+
+h5 {
+    font: $ascent_heading_h5;
+}
+
+h6 {
+    font: $ascent_heading_h6;
+}

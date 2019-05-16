@@ -3,12 +3,12 @@
 		<h1>Credit Card Picker Doohickey</h1>
 		<p>We've vetted hundreds of credit cards to bring you the select few leaders in their categories. Check out our top picks by category, some of which are from our partners, to find the best credit card to suit your needs.</p>
 		<div class="d-flex">
-			<CreditCardPicker
+			<BasePicker
 				@optionSelected="selectedType = $event"
 				label="Search by Card Type"
 				:options="creditCardTypes"
 			/>
-			<CreditCardPicker
+			<BasePicker
 				@optionSelected="selectedRating = $event"
 				label="Search by Credit Rating"
 				:options="creditCardRatings"
@@ -20,20 +20,19 @@
 			v-bind="card"
 		/>
 		<!-- <pre>{{ creditCards[1] }}</pre> -->
-		type: {{ selectedType }} - rating: {{ selectedRating }}
 	</div>
 </template>
 
 <script>
 	// @ is an alias to /src
+	import BasePicker from "@/components/BasePicker.vue";
 	import CreditCardList from "@/components/CreditCardList.vue";
-	import CreditCardPicker from "@/components/CreditCardPicker.vue";
 	const axios = require("axios");
 
 	export default {
 		components: {
-			CreditCardList,
-			CreditCardPicker
+			BasePicker,
+			CreditCardList
 		},
 		created() {
 			this.loadCreditCardData();

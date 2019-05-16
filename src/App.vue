@@ -1,14 +1,16 @@
 <template>
-	<div class="ascent-cc-picker">
+	<div class="ascent-cc-app">
 		<TheIntro />
 		<div class="d-flex">
 			<BasePicker
 				@optionSelected="selectedType = $event"
+				icon="https://g.foolcdn.com/static/affiliates/project/images/icons/credit-card-white.svg"
 				label="Search by Card Type"
 				:options="creditCardTypes"
 			/>
 			<BasePicker
 				@optionSelected="selectedRating = $event"
+				icon="https://g.foolcdn.com/static/affiliates/project/images/icons/cash-white.svg"
 				label="Search by Credit Rating"
 				:options="creditCardRatings"
 			/>

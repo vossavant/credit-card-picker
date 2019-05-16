@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<h1>Credit Card Picker Doohickey</h1>
-		<p>We've vetted hundreds of credit cards to bring you the select few leaders in their categories. Check out our top picks by category, some of which are from our partners, to find the best credit card to suit your needs.</p>
+		<TheIntro />
 		<div class="d-flex">
 			<BasePicker
 				@optionSelected="selectedType = $event"
@@ -27,12 +26,14 @@
 	// @ is an alias to /src
 	import BasePicker from "@/components/BasePicker.vue";
 	import CreditCardList from "@/components/CreditCardList.vue";
+	import TheIntro from "@/components/TheIntro.vue";
 	const axios = require("axios");
 
 	export default {
 		components: {
 			BasePicker,
-			CreditCardList
+			CreditCardList,
+			TheIntro
 		},
 		created() {
 			this.loadCreditCardData();

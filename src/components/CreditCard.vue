@@ -38,9 +38,13 @@
 					<h3>What We Like</h3>
 					<div v-html="card.what_we_like"></div>
 				</div>
-				<div>
-					<p v-if="card.bonus">Bonus: {{ card.bonus }}</p>Rewards:
-					<p v-if="card.rewards_program">{{ card.rewards_program }}</p>
+				<div v-if="card.bonus && card.bonus !== 'N/A'">
+					<h3>Bonus</h3>
+					<p>{{ card.bonus }}</p>
+				</div>
+				<div v-if="card.rewards_program && card.rewards_program !== 'N/A'">
+					<h3>Rewards</h3>
+					<p>{{ card.rewards_program }}</p>
 					<!-- check for "N/A" and possibly filter out -->
 				</div>
 			</aside>
@@ -59,6 +63,20 @@
 
 <style lang="scss" scoped>
 	@import "../scss/variables.scss";
+	
+	h1 {
+		font: $ascent_heading_h2;
+		margin-top: 0;
+	}
+
+	h3 {
+		color: inherit;
+	}
+
+	img {
+		border-radius: 1rem;
+		box-shadow: $ascent_box_shadow;
+	}
 
 	.cc-offer {
 		border: 1px solid $ascent_element_border;
@@ -88,19 +106,5 @@
 				padding-left: 1.5rem;
 			}
 		}
-	}
-
-	h1 {
-		font: $ascent_heading_h2;
-		margin-top: 0;
-	}
-
-	h3 {
-		color: inherit;
-	}
-
-	img {
-		border-radius: 1rem;
-		box-shadow: $ascent_box_shadow;
 	}
 </style>

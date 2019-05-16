@@ -1,11 +1,14 @@
 <template>
 	<div>
-		<p>Unique Card Types:</p>
+		<h4>Unique Card Types:</h4>
 		{{ creditCardTypes }}
-		<p>Unique Credit Ratings:</p>
+		
+		<h4>Unique Credit Ratings:</h4>
 		{{ creditCardRatings }}
+		
+		<pre>{{ creditCards[1] }}</pre>
+		
 		<CreditCard v-for="card in creditCards" v-bind="card" />
-		<pre>{{ creditCards }}</pre>
 	</div>
 </template>
 

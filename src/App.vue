@@ -2,12 +2,18 @@
 	<div>
 		<h1>Credit Card Picker Doohickey</h1>
 		<p>We've vetted hundreds of credit cards to bring you the select few leaders in their categories. Check out our top picks by category, some of which are from our partners, to find the best credit card to suit your needs.</p>
-		<CreditCardPickers
-			@selectCardType="onSelectCardType"
-			@selectCreditRating="onSelectCreditRating"
-			:types="creditCardTypes"
-			:ratings="creditCardRatings"
-		/>
+		<div class="d-flex">
+			<CreditCardPicker
+				@optionSelected="selectedType = $event"
+				label="Search by Card Type"
+				:options="creditCardTypes"
+			/>
+			<CreditCardPicker
+				@optionSelected="selectedRating = $event"
+				label="Search by Credit Rating"
+				:options="creditCardRatings"
+			/>
+		</div>
 		<CreditCardWrap
 			v-show="selectedType === card.card_type && selectedRating === card.credit_rating"
 			v-for="card in creditCards"
@@ -20,13 +26,13 @@
 
 <script>
 	// @ is an alias to /src
-	import CreditCardPickers from "@/components/CreditCardPickers.vue";
+	import CreditCardPicker from "@/components/CreditCardPicker.vue";
 	import CreditCardWrap from "@/components/CreditCardWrap.vue";
 	const axios = require("axios");
 
 	export default {
 		components: {
-			CreditCardPickers,
+			CreditCardPicker,
 			CreditCardWrap
 		},
 		created() {
@@ -68,12 +74,6 @@
 							"Something went wrong while fetching the available credit cards: " +
 							error;
 					});
-			},
-			onSelectCardType(val) {
-				this.selectedType = val;
-			},
-			onSelectCreditRating(val) {
-				this.selectedRating = val;
 			}
 		}
 	};

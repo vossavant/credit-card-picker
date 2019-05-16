@@ -16,7 +16,6 @@
 		components: {
 			CreditCard
 		},
-		name: "CreditCardWrap",
 		props: {
 			card1: Object,
 			card2: Object,

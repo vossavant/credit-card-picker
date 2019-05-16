@@ -6,16 +6,16 @@
 			<div v-if="creditCardTypes.length">
 				<h4>Search by Card Type</h4>
 				<select name="" id="">
-					<option v-for="type in creditCardTypes" :value="type">
-						{{ type }}
+					<option v-for="(type, index) in creditCardTypes" :value="type" :key="index">
+						{{ parseSelectOptions(type) }}
 					</option>
 				</select>
 			</div>
 			<div v-if="creditCardRatings.length">
 				<h4>Search by Credit Rating</h4>
 				<select name="" id="">
-					<option v-for="rating in creditCardRatings" :value="rating">
-						{{ rating }}
+					<option v-for="(rating, index) in creditCardRatings" :value="rating" :key="index">
+						{{ parseSelectOptions(rating) }}
 					</option>
 				</select>
 			</div>
@@ -48,6 +48,9 @@
 			};
 		},
 		methods: {
+			parseSelectOptions(option) {
+				return option.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())
+			},
 			loadCreditCardData() {
 				let self = this;
 				axios

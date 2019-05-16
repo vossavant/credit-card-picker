@@ -1,15 +1,17 @@
 <template>
-	<div>
-		<h3>Type: {{ card_type }} // Credit: {{ credit_rating }}</h3>
-		<h2>Your Results</h2>
-		<p v-if="intro_text">{{ intro_text }}</p>
-		<p v-if="error_text" v-html="error_text"></p>
+	<section class="cc-list-item">
+		<!-- <h3>Type: {{ card_type }} // Credit: {{ credit_rating }}</h3> -->
+		<header :class="{ noMatches: error_text }">
+			<h4>Here's What We Found...</h4>
+			<p v-if="intro_text">{{ intro_text }}</p>
+			<div v-if="error_text" v-html="error_text"></div>
+		</header>
 
 		<CreditCard :card="card1" v-if="card1"/>
 		<CreditCard :card="card2" v-if="card2"/>
 		
 		<p v-if="cta_text" v-html="cta_text"></p>
-	</div>
+	</section>
 </template>
 
 <script>
@@ -37,11 +39,24 @@
 </script>
 
 <style lang="scss" scoped>
-	.card {
-		border: 1px solid #ccc;
-		padding: 40px;
+	@import '../scss/variables.scss';
 
-		&__name {
+	header {
+		background: url('../assets/icon-trophy.svg') center left 2rem no-repeat;
+		border: 1px solid $ascent_element_border;
+		border-radius: $ascent_border_radius;
+		padding: 2rem 2rem 2rem 8rem;
+
+		h4 {
+			margin-top: 0;
+		}
+
+		p:last-of-type {
+			margin-bottom: 0;
+		}
+
+		&.noMatches {
+			background-image: url('../assets/icon-cancel.svg');
 		}
 	}
 </style>

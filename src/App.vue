@@ -5,25 +5,28 @@
 		<div class="d-flex">
 			<div v-if="creditCardTypes.length">
 				<h4>Search by Card Type</h4>
-				<select name="" id="">
-					<option v-for="(type, index) in creditCardTypes" :value="type" :key="index">
+				<select v-model="selectedType">
+					<option disabled value="">Choose a card type...</option>
+					<option v-for="(type, index) in creditCardTypes" v-bind:value="type" :key="index">
 						{{ parseSelectOptions(type) }}
 					</option>
 				</select>
+				<p>Selected: {{ selectedType }}</p>
 			</div>
 			<div v-if="creditCardRatings.length">
 				<h4>Search by Credit Rating</h4>
-				<select name="" id="">
-					<option v-for="(rating, index) in creditCardRatings" :value="rating" :key="index">
+				<select v-model="selectedRating">
+					<option disabled value="">Choose a credit rating...</option>
+					<option v-for="(rating, index) in creditCardRatings" v-bind:value="rating" :key="index">
 						{{ parseSelectOptions(rating) }}
 					</option>
 				</select>
+				<p>Selected: {{ selectedRating }}</p>
 			</div>
 		</div>
 		<div>
-			<pre>{{ creditCards[1] }}</pre>
-			
-			<CreditCard v-for="card in creditCards" v-bind="card" />
+			<pre>{{ creditCards }}</pre>
+			<CreditCard v-show="selectedType === card.card_type" v-for="card in creditCards" v-bind="card" />
 		</div>
 	</div>
 </template>
@@ -44,7 +47,9 @@
 			return {
 				creditCards: {},
 				creditCardRatings: [],
-				creditCardTypes: []
+				creditCardTypes: [],
+				selectedRating: '',
+				selectedType: ''
 			};
 		},
 		methods: {

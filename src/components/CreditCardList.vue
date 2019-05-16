@@ -4,12 +4,12 @@
 		<header :class="{ noMatches: error_text }">
 			<h4>Here's What We Found...</h4>
 			<p v-if="intro_text">{{ intro_text }}</p>
-			<div v-if="error_text" v-html="error_text"></div>
+			<div v-if="error_text && error_text !== '<p></p>'" v-html="error_text"></div>
 		</header>
 
 		<CreditCard :card="card1" v-if="card1"/>
 		<CreditCard :card="card2" v-if="card2"/>
-		
+
 		<p v-if="cta_text" v-html="cta_text"></p>
 	</section>
 </template>
@@ -39,10 +39,10 @@
 </script>
 
 <style lang="scss" scoped>
-	@import '../scss/variables.scss';
+	@import "../scss/variables.scss";
 
 	header {
-		background: url('../assets/icon-trophy.svg') center left 2rem no-repeat;
+		background: url("../assets/icon-trophy.svg") center left 2rem no-repeat;
 		border: 1px solid $ascent_element_border;
 		border-radius: $ascent_border_radius;
 		padding: 2rem 2rem 2rem 8rem;
@@ -56,7 +56,7 @@
 		}
 
 		&.noMatches {
-			background-image: url('../assets/icon-cancel.svg');
+			background-image: url("../assets/icon-cancel.svg");
 		}
 	}
 </style>

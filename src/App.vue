@@ -20,7 +20,7 @@
 			v-for="(card, index) in creditCards"
 			v-bind="card"
 		/>
-		<!-- <pre>{{ creditCards[1] }}</pre> -->
+		<!-- <pre>{{ creditCards }}</pre> -->
 	</div>
 </template>
 

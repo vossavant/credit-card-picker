@@ -10,3 +10,11 @@ export default {
 
 }
 </script>
+
+<style lang="scss" scoped>
+    @import '../scss/variables.scss';
+
+    h1 {
+        font: $ascent_heading_hero;
+    }
+</style>

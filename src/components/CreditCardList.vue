@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<h3>Type: {{ card_type }} // Credit: {{ credit_rating }}</h3>
+		<h2>Your Results</h2>
 		<p v-if="intro_text">{{ intro_text }}</p>
 		<p v-if="error_text" v-html="error_text"></p>
 

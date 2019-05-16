@@ -59,5 +59,10 @@
 	};
 </script>
 
-<style>
+<style lang="scss" scoped>
+	@import '../scss/variables.scss';
+
+	h1 {
+		font: $ascent_heading_h2;
+	}
 </style>

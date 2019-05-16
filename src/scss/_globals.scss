@@ -2,11 +2,16 @@
     margin: auto;
     max-width: 1024px;
 
+    img {
+        max-width: 100%;
+    }
+
     .intro-p {
         font-size: 1.25rem;
     }
     
     .d-flex {
         display: flex;
+        justify-content: space-between;
     }
 }

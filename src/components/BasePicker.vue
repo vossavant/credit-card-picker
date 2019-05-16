@@ -53,7 +53,7 @@
 	.picker {
 		background: $ascent_primary;
 		border-radius: $ascent_border_radius;
-		box-shadow: 0 18px 20px transparentize(black, 0.8);
+		box-shadow: $ascent_box_shadow;
 		color: white;
 		flex-grow: 1;
 		margin: 0 1rem;

@@ -1,5 +1,5 @@
 <template>
-	<article class="card">
+	<article class="cc-offer">
 		<div class="d-flex">
 			<div>
 				<h1>{{ card.offer_name }}</h1>
@@ -61,6 +61,12 @@
 
 <style lang="scss" scoped>
 	@import '../scss/variables.scss';
+
+	article {
+		border: 1px solid $ascent_element_border;
+		border-radius: $ascent_border_radius;
+		box-shadow: $ascent-box-shadow;
+	}
 
 	h1 {
 		font: $ascent_heading_h2;

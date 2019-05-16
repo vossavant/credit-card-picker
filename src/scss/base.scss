@@ -17,6 +17,7 @@ a {
 }
 
 body {
+    background: #f7f7f9; // for testing only to ensure elements have backgrounds - remove before delivery
     color: $ascent_primary_text;
     font: 1rem/1.25 $ascent_font_stack;
     margin: 0;

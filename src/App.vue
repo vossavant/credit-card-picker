@@ -2,42 +2,22 @@
 	<div>
 		<h1>Credit Card Picker Doohickey</h1>
 		<p>We've vetted hundreds of credit cards to bring you the select few leaders in their categories. Check out our top picks by category, some of which are from our partners, to find the best credit card to suit your needs.</p>
-		<div class="d-flex">
-			<div v-if="creditCardTypes.length">
-				<h4>Search by Card Type</h4>
-				<select v-model="selectedType">
-					<option disabled value="">Choose a card type...</option>
-					<option v-for="(type, index) in creditCardTypes" v-bind:value="type" :key="index">
-						{{ parseSelectOptions(type) }}
-					</option>
-				</select>
-				<p>Selected: {{ selectedType }}</p>
-			</div>
-			<div v-if="creditCardRatings.length">
-				<h4>Search by Credit Rating</h4>
-				<select v-model="selectedRating">
-					<option disabled value="">Choose a credit rating...</option>
-					<option v-for="(rating, index) in creditCardRatings" v-bind:value="rating" :key="index">
-						{{ parseSelectOptions(rating) }}
-					</option>
-				</select>
-				<p>Selected: {{ selectedRating }}</p>
-			</div>
-		</div>
-		<div>
-			<CreditCardWrap v-show="selectedType === card.card_type && selectedRating === card.credit_rating" v-for="card in creditCards" v-bind="card" />
-			<pre>{{ creditCards[1] }}</pre>
-		</div>
+		<CreditCardPickers v-on:selectCardType="selectedType = $event" v-on:selectCreditRating="selectedRating = $event" v-bind:types="creditCardTypes" v-bind:ratings="creditCardRatings" />
+		<CreditCardWrap v-show="selectedType === card.card_type && selectedRating === card.credit_rating" v-for="card in creditCards" v-bind="card" />
+		<!-- <pre>{{ creditCards[1] }}</pre> -->
+		type: {{ selectedType }} - rating: {{ selectedRating }}
 	</div>
 </template>
 
 <script>
 	// @ is an alias to /src
+	import CreditCardPickers from "@/components/CreditCardPickers.vue";
 	import CreditCardWrap from "@/components/CreditCardWrap.vue";
 	const axios = require("axios");
 
 	export default {
 		components: {
+			CreditCardPickers,
 			CreditCardWrap
 		},
 		created() {
@@ -53,9 +33,6 @@
 			};
 		},
 		methods: {
-			parseSelectOptions(option) {
-				return option.replace('_', ' ').replace(/\b\w/g, l => l.toUpperCase())
-			},
 			loadCreditCardData() {
 				let self = this;
 				axios

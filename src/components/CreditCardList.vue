@@ -19,8 +19,14 @@
 		props: {
 			card1: Object,
 			card2: Object,
-			card_type: String,
-			credit_rating: String,
+			card_type: {
+				required: true,
+				type: String
+			},
+			credit_rating: {
+				required: true,
+				type: String
+			},
 			cta_text: String,
 			error_text: String,
 			intro_text: String

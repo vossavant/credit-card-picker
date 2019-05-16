@@ -14,7 +14,7 @@
 				:options="creditCardRatings"
 			/>
 		</div>
-		<CreditCardWrap
+		<CreditCardList
 			v-show="selectedType === card.card_type && selectedRating === card.credit_rating"
 			v-for="card in creditCards"
 			v-bind="card"
@@ -26,14 +26,14 @@
 
 <script>
 	// @ is an alias to /src
+	import CreditCardList from "@/components/CreditCardList.vue";
 	import CreditCardPicker from "@/components/CreditCardPicker.vue";
-	import CreditCardWrap from "@/components/CreditCardWrap.vue";
 	const axios = require("axios");
 
 	export default {
 		components: {
-			CreditCardPicker,
-			CreditCardWrap
+			CreditCardList,
+			CreditCardPicker
 		},
 		created() {
 			this.loadCreditCardData();

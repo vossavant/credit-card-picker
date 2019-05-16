@@ -2,11 +2,11 @@
 	<div class="d-flex">
 		<div v-if="types.length">
 			<h4>Search by Card Type</h4>
-			<select v-model="selectedType" v-on:change="$emit('selectCardType', $event.target.value)">
+			<select v-model="selectedType" @change="$emit('selectCardType', $event.target.value)">
 				<option disabled value>Choose a card type...</option>
 				<option
 					v-for="(type, index) in types"
-					v-bind:value="type"
+					:value="type"
 					:key="index"
 				>{{ parseSelectOptions(type) }}</option>
 			</select>
@@ -14,11 +14,11 @@
 		</div>
 		<div v-if="ratings.length">
 			<h4>Search by Credit Rating</h4>
-			<select v-model="selectedRating" v-on:change="$emit('selectCreditRating', $event.target.value)">
+			<select v-model="selectedRating" @change="$emit('selectCreditRating', $event.target.value)">
 				<option disabled value>Choose a credit rating...</option>
 				<option
 					v-for="(rating, index) in ratings"
-					v-bind:value="rating"
+					:value="rating"
 					:key="index"
 				>{{ parseSelectOptions(rating) }}</option>
 			</select>

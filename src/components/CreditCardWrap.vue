@@ -5,8 +5,8 @@
 		<p v-if="cta_text" v-html="cta_text"></p>
 		<p v-if="error_text" v-html="error_text"></p>
 
-		<CreditCard v-bind:card="card1" v-if="card1"/>
-		<CreditCard v-bind:card="card2" v-if="card2"/>
+		<CreditCard :card="card1" v-if="card1"/>
+		<CreditCard :card="card2" v-if="card2"/>
 	</div>
 </template>
 

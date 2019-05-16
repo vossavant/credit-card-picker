@@ -1,9 +1,25 @@
 @import "variables.scss";
-@import "helpers.scss";
+@import "globals.scss";
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+a {
+    color: $ascent_secondary_text;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
 
 body {
     color: $ascent_primary_text;
     font: 1rem/1.25 $ascent_font_stack;
+    margin: 0;
 } 
 
 h1,

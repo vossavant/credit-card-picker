@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="ascent-cc-picker">
 		<TheIntro />
 		<div class="d-flex">
 			<BasePicker

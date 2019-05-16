@@ -10,7 +10,7 @@
 			/>
 			<BasePicker
 				@optionSelected="selectedRating = $event"
-				icon="https://g.foolcdn.com/static/affiliates/project/images/icons/cash-white.svg"
+				icon="https://g.foolcdn.com/static/affiliates/project/images/icons/goals-white.svg"
 				label="Search by Credit Rating"
 				:options="creditCardRatings"
 			/>

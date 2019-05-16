@@ -67,11 +67,6 @@
 </script>
 
 <style lang="scss" scoped>
-    // TODO: this class needn't be scoped
-    .d-flex {
-        display: flex;
-    }
-
     .card {
         border: 1px solid #ccc;
         padding: 40px;

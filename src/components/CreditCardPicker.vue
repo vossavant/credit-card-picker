@@ -7,7 +7,7 @@
 					v-for="(option, index) in options"
 					:value="option"
 					:key="index"
-				>{{ parseSelectOptions(option) }}</option>
+				>{{ addSpacesAndCapitalize(option) }}</option>
 			</select>
 		</label>
 		<p>Selected: {{ selectedOption }}</p>
@@ -33,7 +33,7 @@
 			}
 		},
 		methods: {
-			parseSelectOptions(option) {
+			addSpacesAndCapitalize(option) {
 				return option
 					.replace("_", " ")
 					.replace(/\b\w/g, l => l.toUpperCase());

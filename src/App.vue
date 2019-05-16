@@ -15,8 +15,8 @@
 			/>
 		</div>
 		<CreditCardList
-			v-show="selectedType === card.card_type && selectedRating === card.credit_rating"
-			v-for="card in creditCards"
+			v-show="showCards(card)"
+			v-for="(card, index) in creditCards"
 			v-bind="card"
 		/>
 		<!-- <pre>{{ creditCards[1] }}</pre> -->
@@ -74,7 +74,11 @@
 							"Something went wrong while fetching the available credit cards: " +
 							error;
 					});
-			}
+			},
+
+			showCards(card) {
+				return this.selectedType === card.card_type && this.selectedRating === card.credit_rating;
+			},
 		}
 	};
 </script>

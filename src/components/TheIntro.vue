@@ -34,13 +34,13 @@
 
 		@include max-device("phone-vintage") {
 			font-size: 2.5rem;
-			margin-top: 0;
+			margin-top: 0.5rem;
 		}
 	}
 
 	header {
 		@include max-device("phone-vintage") {
-			margin: 1rem 1rem 0;
+			margin: 1.5rem 1.5rem 0;
 		}
 	}
 </style>

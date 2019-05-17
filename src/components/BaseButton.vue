@@ -1,5 +1,5 @@
 <template>
-    <a :href="link" :style="{ marginTop: topSpacing }">{{ text }}</a>
+    <a :href="link">{{ text }}</a>
 </template>
 
 <script>
@@ -14,10 +14,6 @@ export default {
             type: String,
             required: true,
             default: 'Click Me'
-        },
-        topSpacing: {
-            type: String,
-            default: 0
         }
     }
 }
@@ -34,6 +30,7 @@ export default {
         font-size: 1rem;
         font-weight: 700;
         line-height: 3rem;
+        margin-top: 2rem;
         padding: 0 3rem;
         transition: background 250ms ease-in-out, box-shadow 250ms ease-in-out, transform 250ms ease-in-out;
 

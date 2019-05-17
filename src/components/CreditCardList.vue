@@ -63,7 +63,7 @@
 		}
 
 		&.matches {
-			background-image: url("../assets/icon-trophy.svg");
+			background-image: url("../assets/icon-cards.svg");
 		}
 	}
 </style>

@@ -92,8 +92,7 @@
 			loadCreditCardData() {
 				let self = this;
 				axios
-					.get("http://localhost:8080/credit-cards.json")
-					// .get("https://www.fool.com/the-ascent/api/creditcardrecommendations/")
+					.get("https://www.fool.com/the-ascent/api/creditcardrecommendations/")
 					.then(function(response) {
 						self.creditCards = response.data;
 						// self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))]; // preferred, but doesn't work in IE11

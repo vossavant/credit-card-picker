@@ -15,6 +15,7 @@
 				:options="creditCardRatings"
 			/>
 		</div>
+		<p v-show="selectedType === null || selectedRating === null">Select both options to see some cards!</p>
 		<CreditCardList
 			v-show="showCards(card)"
 			v-for="(card, index) in creditCards"
@@ -45,8 +46,8 @@
 				creditCards: {},
 				creditCardRatings: [],
 				creditCardTypes: [],
-				selectedRating: "",
-				selectedType: ""
+				selectedRating: null,
+				selectedType: null
 			};
 		},
 		methods: {

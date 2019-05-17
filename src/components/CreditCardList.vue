@@ -1,3 +1,8 @@
+<!--
+	Credit Card List
+
+	Outputs a list of credit card offers
+-->
 <template>
 	<section class="cc-list-item">
 		<BaseCallout :class="{ noResults: card1 === null }">

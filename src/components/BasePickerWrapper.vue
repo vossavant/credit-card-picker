@@ -1,3 +1,9 @@
+<!--
+	Base Picker Wrapper
+
+	Wraps the BasePicker component in a specially stylized div
+    that accounts for negative margins on the pickers.
+-->
 <template>
     <div class="picker-wrap">
         <slot></slot>

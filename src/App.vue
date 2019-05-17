@@ -1,3 +1,9 @@
+<!--
+	App
+
+	Loads app components and immediately fetches credit card info
+	so it is ready when the user wants to make a selection.
+-->
 <template>
 	<div class="ascent-cc-app">
 		<TheIntro />

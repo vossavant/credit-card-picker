@@ -1,3 +1,8 @@
+<!--
+	The Intro
+
+	Master heading and intro paragraph for the entire app.
+-->
 <template>
     <header>
         <img src="@/assets/logo@2x.png" width="200">

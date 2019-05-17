@@ -1,3 +1,10 @@
+<!--
+	Base Picker
+
+	Creates a stylized dropdown with optional icon. Accepts
+	an array of options, passing each through a method that
+	makes them more readable.
+-->
 <template>
 	<div class="picker" v-if="options.length">
 		<img v-if="icon" :src="icon" alt="">

@@ -1,3 +1,9 @@
+<!--
+	Base Callout
+
+	Accepts any content in the <slot></slot> below. Helpful for
+	presenting important content in a notification-style box.
+-->
 <template>
     <div class="callout">
         <slot></slot>

@@ -1,3 +1,9 @@
+<!--
+	Credit Card
+
+	Everything you ever wanted to know about a particular
+	credit card offer is here :)
+-->
 <template>
 	<article class="cc-offer">
 		<div class="d-flex stack-on-tablet">

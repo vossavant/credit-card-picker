@@ -7,13 +7,13 @@
 					<h3>Our Bottom Line</h3>
 					<div v-html="card.bottom_line"></div>
 				</div>
-				<a v-if="card.review_url" :href="card.review_url">Read Full Review</a>
+				<a v-if="card.review_url" :href="card.review_url">Read our review of this card &raquo;</a>
 				<div v-if="card.marketing_bullets">
-					<h3>Highlights</h3>
+					<h3 class="has-icon has-icon--trophy">Highlights</h3>
 					<div v-html="card.marketing_bullets"></div>
 				</div>
 				<div>
-					<h3>Fees</h3>
+					<h3 class="has-icon has-icon--money">Fees</h3>
 					<div class="d-flex">
 						<div class="cc-offer__callout cc-offer__callout--half">
 							<h5>Annual Fee:</h5>
@@ -26,7 +26,7 @@
 					</div>
 				</div>
 				<div>
-					<h3>APRs</h3>
+					<h3 class="has-icon has-icon--hand">APRs</h3>
 					<div class="d-flex">
 						<div class="cc-offer__callout cc-offer__callout--third">
 							<h5>Regular APR:</h5> 
@@ -42,7 +42,7 @@
 						</div>
 					</div>
 				</div>
-				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" topSpacing="2rem" text="Apply Now!" />
+				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" topSpacing="2rem" text="Apply Now »" />
 				<a
 					v-if="card.terms_and_conditions_link"
 					:href="card.terms_and_conditions_link"
@@ -98,6 +98,19 @@
 	h3 {
 		border-bottom: 2px solid transparentize($ascent_primary_heading, 0.9);
 		padding-bottom: 0.25rem;
+
+		&.has-icon {
+			background: url('../assets/icon-trophy.svg') top right / 32px no-repeat;
+			
+			&--hand {
+				background-image: url('../assets/icon-hand.svg');
+			}
+
+			&--money {
+				background-image: url('../assets/icon-money.svg');
+			}
+
+		}
 	}
 
 	img {

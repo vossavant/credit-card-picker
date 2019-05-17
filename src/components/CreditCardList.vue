@@ -43,7 +43,7 @@
 		// would need to accept the `card` object and iterate over each property
 		filters: {
 			stripEmptyParagraphTags: function(value) {
-				return value.replace('<p></p>', '');
+				return value.replace("<p></p>", "");
 			}
 		}
 	};
@@ -51,6 +51,4 @@
 
 <style lang="scss" scoped>
 	@import "../scss/variables.scss";
-
-	
 </style>

@@ -5,37 +5,34 @@
     that accounts for negative margins on the pickers.
 -->
 <template>
-    <div class="picker-wrap">
-        <slot></slot>
-    </div>
+	<div class="picker-wrap">
+		<slot></slot>
+	</div>
 </template>
 
 <script>
-    export default {
-
-    }
+	export default {};
 </script>
 
 <style lang="scss" scoped>
-    @import "../scss/variables.scss";
-    @import "../scss/mixins.scss";
-    
-    .picker-wrap {
-        display: flex;
-        margin: 2rem -1rem;
+	@import "../scss/variables.scss";
+	@import "../scss/mixins.scss";
 
-        @include max-device('tablet') {
+	.picker-wrap {
+		display: flex;
+		margin: 2rem -1rem;
+
+		@include max-device("tablet") {
 			margin: 1rem -0.5rem;
-        }
-        
-        @include max-device('phone-portrait') {
+		}
+
+		@include max-device("phone-portrait") {
 			flex-wrap: wrap;
-        }
-        
-        @include max-device('phone-vintage') {
+		}
+
+		@include max-device("phone-vintage") {
 			margin-left: 0;
 			margin-right: 0;
 		}
-    }
+	}
 </style>
-

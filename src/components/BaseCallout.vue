@@ -5,40 +5,38 @@
 	presenting important content in a notification-style box.
 -->
 <template>
-    <div class="callout">
-        <slot></slot>
-    </div>
+	<div class="callout">
+		<slot></slot>
+	</div>
 </template>
 
 <script>
-    export default {
-        
-    }
+	export default {};
 </script>
 
 <style lang="scss" scoped>
-    @import "../scss/variables.scss";
-    @import "../scss/mixins.scss";
+	@import "../scss/variables.scss";
+	@import "../scss/mixins.scss";
 
 	.callout {
 		background: white url("../assets/icon-cards.svg") center left 2rem no-repeat;
 		border: 1px solid $ascent_element_border;
 		border-radius: $ascent_border_radius;
-        box-shadow: $ascent-box-shadow;
-        margin: 2rem 0;
+		box-shadow: $ascent-box-shadow;
+		margin: 2rem 0;
 		padding: 2rem 2rem 2rem 8rem;
 
-		@include max-device('tablet') {
+		@include max-device("tablet") {
 			box-shadow: $ascent_box_shadow_tablet;
 			margin: 1rem 0;
 		}
 
-		@include max-device('phone-portrait') {
+		@include max-device("phone-portrait") {
 			background-position: top 1rem center;
 			padding: 6rem 1.5rem 1.5rem;
 		}
 
-		@include max-device('phone-vintage') {
+		@include max-device("phone-vintage") {
 			border-radius: 0;
 			box-shadow: none;
 		}
@@ -52,7 +50,8 @@
 		}
 
 		&.loading {
-			background: url('../assets/loader.svg') center left 2.75rem / 2rem no-repeat;
+			background: url("../assets/loader.svg") center left 2.75rem / 2rem
+				no-repeat;
 		}
 
 		&.noResults {

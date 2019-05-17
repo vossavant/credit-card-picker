@@ -7,9 +7,13 @@
 -->
 <template>
 	<div class="picker" v-if="options.length">
-		<img v-if="icon" :src="icon" alt="">
-		<label>{{ label }}
-			<select v-model="selectedOption" @change="$emit('optionSelected', $event.target.value)">
+		<img v-if="icon" :src="icon" alt>
+		<label>
+			{{ label }}
+			<select
+				v-model="selectedOption"
+				@change="$emit('optionSelected', $event.target.value)"
+			>
 				<option disabled value>Choose an option...</option>
 				<option
 					v-for="(option, index) in options"
@@ -18,7 +22,6 @@
 				>{{ addSpacesAndCapitalize(option) }}</option>
 			</select>
 		</label>
-	</div>
 	</div>
 </template>
 
@@ -29,6 +32,7 @@
 				selectedOption: ""
 			};
 		},
+		
 		props: {
 			icon: {
 				required: false,
@@ -40,9 +44,10 @@
 			},
 			options: {
 				required: true,
-				type: Array,
+				type: Array
 			}
 		},
+		
 		methods: {
 			addSpacesAndCapitalize(option) {
 				return option
@@ -67,24 +72,24 @@
 		padding: 2rem;
 		text-align: center;
 
-		@include max-device('tablet') {
+		@include max-device("tablet") {
 			box-shadow: $ascent_box_shadow_tablet;
 			margin: 0 0.5rem;
 		}
 
-		@include max-device('phone-portrait') {
+		@include max-device("phone-portrait") {
 			margin-top: 1rem;
 			padding: 1.5rem;
 		}
 
-		@include max-device('phone-vintage') {
+		@include max-device("phone-vintage") {
 			border-radius: 0;
 			box-shadow: none;
 			margin: 0 0 1px;
 			text-align: left;
 		}
 	}
-	
+
 	label {
 		display: block;
 		font: $ascent_heading_h3;

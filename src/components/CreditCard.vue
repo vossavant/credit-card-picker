@@ -14,16 +14,26 @@
 						<img class="show-on-tablet" :src="card.offer_image" :alt="card.offer_name">
 					</div>
 				</header>
+				
 				<div v-if="card.bottom_line && card.bottom_line !== '<p></p>'">
 					<h3>Our Bottom Line</h3>
 					<div v-html="card.bottom_line"></div>
 				</div>
+				
 				<a v-if="card.review_url" :href="card.review_url">Read our review of this card &raquo;</a>
-				<BaseButton class="show-on-portrait" v-if="card.affiliate_link" :link="card.affiliate_link" text="Apply Now »" />
+				
+				<BaseButton
+					class="show-on-portrait"
+					v-if="card.affiliate_link"
+					:link="card.affiliate_link"
+					text="Apply Now »"
+				/>
+				
 				<div v-if="card.marketing_bullets">
 					<h3 class="has-icon has-icon--trophy">Highlights</h3>
 					<div v-html="card.marketing_bullets"></div>
 				</div>
+				
 				<div>
 					<h3 class="has-icon has-icon--money">Fees</h3>
 					<div class="d-flex stack-on-landscape">
@@ -37,60 +47,70 @@
 						</div>
 					</div>
 				</div>
+				
 				<div>
 					<h3 class="has-icon has-icon--hand">APRs</h3>
 					<div class="d-flex stack-on-landscape">
 						<div class="cc-offer__callout cc-offer__callout--third">
-							<h5>Regular APR:</h5> 
+							<h5>Regular APR:</h5>
 							<p>{{ card.regular_apr }}</p>
 						</div>
 						<div class="cc-offer__callout cc-offer__callout--third">
-							<h5>Intro Purchase APR:</h5> 
+							<h5>Intro Purchase APR:</h5>
 							<p>{{ card.intro_purchase_apr }}</p>
 						</div>
 						<div class="cc-offer__callout cc-offer__callout--third">
-							<h5>Intro Transfer APR:</h5> 
+							<h5>Intro Transfer APR:</h5>
 							<p>{{ card.intro_transfer_apr }}</p>
 						</div>
 					</div>
 				</div>
-				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" text="Apply Now »" />
+				
+				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" text="Apply Now »"/>
+				
 				<a
 					class="cc-offer__terms-link"
 					v-if="card.terms_and_conditions_link"
 					:href="card.terms_and_conditions_link"
 				>Terms and Conditions</a>
 			</div>
+			
 			<aside class="cc-offer__supplemental">
 				<img :src="card.offer_image" :alt="card.offer_name">
 				<div class="d-flex cc-offer__ratings">
 					<div class="cc-offer__rating cc-offer__rating--bold">
 						<h5>Overall</h5>
 						<div>
-							<span>{{ card.star_rating.toFixed(1) }}</span> <span>/ 5</span>
+							<span>{{ card.star_rating.toFixed(1) }}</span>
+							<span>/ 5</span>
 						</div>
 					</div>
 					<div class="cc-offer__rating">
 						<h5>APR</h5>
 						<div>
-							<span>{{ card.aprs_rating.toFixed(1) }}</span> <span>/ 5</span>
+							<span>{{ card.aprs_rating.toFixed(1) }}</span>
+							<span>/ 5</span>
 						</div>
 					</div>
 					<div class="cc-offer__rating">
-						<h5>Fees</h5> 
+						<h5>Fees</h5>
 						<div>
-							<span>{{ card.fees_rating.toFixed(1) }}</span> <span>/ 5</span>
+							<span>{{ card.fees_rating.toFixed(1) }}</span>
+							<span>/ 5</span>
 						</div>
 					</div>
 				</div>
+				
 				<div v-if="card.what_we_like">
 					<h3>What We Like</h3>
 					<div v-html="card.what_we_like"></div>
 				</div>
+				
 				<div v-if="card.bonus && card.bonus !== 'N/A'">
 					<h3>Bonus</h3>
 					<p>{{ card.bonus }}</p>
 				</div>
+				
 				<div v-if="card.rewards_program && card.rewards_program !== 'N/A'">
 					<h3>Rewards</h3>
 					<p>{{ card.rewards_program }}</p>
@@ -107,6 +127,7 @@
 		components: {
 			BaseButton
 		},
+
 		props: {
 			card: Object
 		}
@@ -116,22 +137,22 @@
 <style lang="scss" scoped>
 	@import "../scss/variables.scss";
 	@import "../scss/mixins.scss";
-	
+
 	h1 {
 		font: $ascent_heading_h2;
 		margin-top: 0;
 
-		@include max-device('tablet') {
+		@include max-device("tablet") {
 			font-size: 4.9vw;
 			min-width: 66%;
-    		padding-right: 2rem;
+			padding-right: 2rem;
 		}
 
-		@include max-device('phone-landscape') {
+		@include max-device("phone-landscape") {
 			font-size: 1.75rem;
 		}
 
-		@include max-device('phone-portrait') {
+		@include max-device("phone-portrait") {
 			padding-right: 0;
 		}
 	}
@@ -140,31 +161,30 @@
 		border-bottom: 2px solid transparentize($ascent_primary_heading, 0.9);
 		padding-bottom: 0.25rem;
 
-		@include max-device('phone-landscape') {
+		@include max-device("phone-landscape") {
 			font-size: 1.25rem;
-    		line-height: 2rem;
+			line-height: 2rem;
 		}
 
 		&.has-icon {
-			background: url('../assets/icon-trophy.svg') top right / 32px no-repeat;
-			
+			background: url("../assets/icon-trophy.svg") top right / 32px no-repeat;
+
 			&--hand {
-				background-image: url('../assets/icon-hand.svg');
+				background-image: url("../assets/icon-hand.svg");
 			}
 
 			&--money {
-				background-image: url('../assets/icon-money.svg');
+				background-image: url("../assets/icon-money.svg");
 			}
-
 		}
 	}
 
 	header {
-		@include max-device('tablet') {
+		@include max-device("tablet") {
 			display: flex;
 		}
 
-		@include max-device('phone-portrait') {
+		@include max-device("phone-portrait") {
 			flex-wrap: wrap;
 			justify-content: space-around;
 			margin-bottom: 2rem;
@@ -175,11 +195,11 @@
 		border-radius: 1rem;
 		box-shadow: $ascent_box_shadow;
 
-		@include max-device('tablet') {
+		@include max-device("tablet") {
 			border-radius: 0.5rem;
 		}
 
-		@include max-device('phone-portrait') {
+		@include max-device("phone-portrait") {
 			border-radius: 1rem;
 		}
 	}
@@ -192,12 +212,12 @@
 		margin: 2rem 0;
 		overflow: hidden;
 
-		@include max-device('tablet') {
+		@include max-device("tablet") {
 			box-shadow: $ascent_box_shadow_tablet;
 			margin: 1rem 0;
 		}
 
-		@include max-device('phone-vintage') {
+		@include max-device("phone-vintage") {
 			box-shadow: none;
 			border-radius: 0;
 		}
@@ -220,7 +240,7 @@
 		&__callout--half {
 			width: 49%;
 
-			@include max-device('phone-landscape') {
+			@include max-device("phone-landscape") {
 				margin-bottom: 0.5rem;
 				width: 100%;
 			}
@@ -233,7 +253,7 @@
 		&__callout--third {
 			width: 32%;
 
-			@include max-device('phone-landscape') {
+			@include max-device("phone-landscape") {
 				margin-bottom: 0.5rem;
 				width: 100%;
 			}
@@ -242,16 +262,16 @@
 				margin-bottom: 0;
 			}
 		}
-		
+
 		&__details {
 			max-width: 65%;
 			padding: 2rem;
 
-			@include max-device('tablet') {
+			@include max-device("tablet") {
 				max-width: none;
 			}
 
-			@include max-device('phone-portrait') {
+			@include max-device("phone-portrait") {
 				padding: 1.5rem;
 			}
 
@@ -265,7 +285,7 @@
 		}
 
 		&__details /deep/ ul {
-			@include max-device('phone-portrait') {
+			@include max-device("phone-portrait") {
 				padding-left: 2rem;
 			}
 		}
@@ -274,11 +294,11 @@
 			padding: 0.5rem;
 			width: 30%;
 
-			@include max-device('tablet') {
+			@include max-device("tablet") {
 				padding: 1rem;
 			}
 
-			@include max-device('phone-portrait') {
+			@include max-device("phone-portrait") {
 				padding: 0.5rem;
 			}
 
@@ -301,7 +321,7 @@
 		&__rating span:first-child {
 			font-size: 2.375rem;
 
-			@include max-device('phone-portrait') {
+			@include max-device("phone-portrait") {
 				font-size: 2rem;
 			}
 		}
@@ -322,12 +342,12 @@
 			max-width: 35%;
 			padding: 2rem;
 
-			@include max-device('tablet') {
+			@include max-device("tablet") {
 				max-width: none;
 				width: 100%;
 			}
 
-			@include max-device('phone-portrait') {
+			@include max-device("phone-portrait") {
 				padding: 1.5rem;
 			}
 
@@ -341,14 +361,14 @@
 			}
 
 			img {
-				@include max-device('tablet') {
+				@include max-device("tablet") {
 					display: none;
 				}
 			}
-			
+
 			/deep/ li {
 				line-height: 2rem;
-				list-style-image: url('../assets/icon-thumb.svg');
+				list-style-image: url("../assets/icon-thumb.svg");
 			}
 
 			/deep/ ul {
@@ -360,7 +380,7 @@
 		&__terms-link {
 			margin-left: 2rem;
 
-			@include max-device('phone-landscape') {
+			@include max-device("phone-landscape") {
 				display: block;
 				line-height: 2rem;
 				margin-left: 0;

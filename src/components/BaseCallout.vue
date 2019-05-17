@@ -12,6 +12,7 @@
 
 <style lang="scss" scoped>
     @import "../scss/variables.scss";
+    @import "../scss/mixins.scss";
 
 	.callout {
 		background: white url("../assets/icon-cards.svg") center left 2rem no-repeat;
@@ -20,6 +21,21 @@
         box-shadow: $ascent-box-shadow;
         margin: 2rem 0;
 		padding: 2rem 2rem 2rem 8rem;
+
+		@include max-device('tablet') {
+			box-shadow: $ascent_box_shadow_tablet;
+			margin: 1rem 0;
+		}
+
+		@include max-device('phone-portrait') {
+			background-position: top 1rem center;
+			padding: 6rem 1.5rem 1.5rem;
+		}
+
+		@include max-device('phone-vintage') {
+			border-radius: 0;
+			box-shadow: none;
+		}
 
 		h4 {
 			margin-top: 0;

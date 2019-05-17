@@ -48,6 +48,7 @@
 
 <style lang="scss" scoped>
 	@import "../scss/variables.scss";
+	@import "../scss/mixins.scss";
 
 	.picker {
 		background: $ascent_primary;
@@ -58,6 +59,23 @@
 		margin: 0 1rem;
 		padding: 2rem;
 		text-align: center;
+
+		@include max-device('tablet') {
+			box-shadow: $ascent_box_shadow_tablet;
+			margin: 0 0.5rem;
+		}
+
+		@include max-device('phone-portrait') {
+			margin-top: 1rem;
+			padding: 1.5rem;
+		}
+
+		@include max-device('phone-vintage') {
+			border-radius: 0;
+			box-shadow: none;
+			margin: 0 0 1px;
+			text-align: left;
+		}
 	}
 	
 	label {

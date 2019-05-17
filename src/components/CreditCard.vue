@@ -13,13 +13,14 @@
 					<div v-html="card.bottom_line"></div>
 				</div>
 				<a v-if="card.review_url" :href="card.review_url">Read our review of this card &raquo;</a>
+				<BaseButton class="show-on-portrait" v-if="card.affiliate_link" :link="card.affiliate_link" text="Apply Now »" />
 				<div v-if="card.marketing_bullets">
 					<h3 class="has-icon has-icon--trophy">Highlights</h3>
 					<div v-html="card.marketing_bullets"></div>
 				</div>
 				<div>
 					<h3 class="has-icon has-icon--money">Fees</h3>
-					<div class="d-flex">
+					<div class="d-flex stack-on-landscape">
 						<div class="cc-offer__callout cc-offer__callout--half">
 							<h5>Annual Fee:</h5>
 							<p>{{ card.annual_fee }}</p>
@@ -32,7 +33,7 @@
 				</div>
 				<div>
 					<h3 class="has-icon has-icon--hand">APRs</h3>
-					<div class="d-flex">
+					<div class="d-flex stack-on-landscape">
 						<div class="cc-offer__callout cc-offer__callout--third">
 							<h5>Regular APR:</h5> 
 							<p>{{ card.regular_apr }}</p>
@@ -49,9 +50,9 @@
 				</div>
 				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" text="Apply Now »" />
 				<a
+					class="cc-offer__terms-link"
 					v-if="card.terms_and_conditions_link"
 					:href="card.terms_and_conditions_link"
-				 	:style="{ marginLeft: '2rem' }"
 				>Terms and Conditions</a>
 			</div>
 			<aside class="cc-offer__supplemental">
@@ -123,6 +124,10 @@
 		@include max-device('phone-landscape') {
 			font-size: 1.75rem;
 		}
+
+		@include max-device('phone-portrait') {
+			padding-right: 0;
+		}
 	}
 
 	h3 {
@@ -152,6 +157,12 @@
 		@include max-device('tablet') {
 			display: flex;
 		}
+
+		@include max-device('phone-portrait') {
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin-bottom: 2rem;
+		}
 	}
 
 	img {
@@ -161,14 +172,29 @@
 		@include max-device('tablet') {
 			border-radius: 0.5rem;
 		}
+
+		@include max-device('phone-portrait') {
+			border-radius: 1rem;
+		}
 	}
 
 	.cc-offer {
+		background: white;
 		border: 1px solid $ascent_element_border;
 		border-radius: $ascent_border_radius;
 		box-shadow: $ascent-box-shadow;
 		margin: 2rem 0;
 		overflow: hidden;
+
+		@include max-device('tablet') {
+			box-shadow: $ascent_box_shadow_tablet;
+			margin: 1rem 0;
+		}
+
+		@include max-device('phone-vintage') {
+			box-shadow: none;
+			border-radius: 0;
+		}
 
 		&__callout {
 			background: transparentize($ascent_tertiary_accent, 0.95);
@@ -183,13 +209,31 @@
 			p {
 				margin: inherit;
 			}
+		}
 
-			&--half {
-				width: 49%;
+		&__callout--half {
+			width: 49%;
+
+			@include max-device('phone-landscape') {
+				margin-bottom: 0.5rem;
+				width: 100%;
 			}
 
-			&--third {
-				width: 32%;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+
+		&__callout--third {
+			width: 32%;
+
+			@include max-device('phone-landscape') {
+				margin-bottom: 0.5rem;
+				width: 100%;
+			}
+
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 		
@@ -201,12 +245,22 @@
 				max-width: none;
 			}
 
+			@include max-device('phone-portrait') {
+				padding: 1.5rem;
+			}
+
 			/deep/ li {
 				margin-bottom: 0.5rem;
 			}
 
 			/deep/ li:last-child {
 				margin-bottom: 0;
+			}
+		}
+
+		&__details /deep/ ul {
+			@include max-device('phone-portrait') {
+				padding-left: 2rem;
 			}
 		}
 
@@ -218,6 +272,10 @@
 				padding: 1rem;
 			}
 
+			@include max-device('phone-portrait') {
+				padding: 0.5rem;
+			}
+
 			div {
 				letter-spacing: -0.05em;
 				margin: 0;
@@ -227,21 +285,25 @@
 				margin: 0;
 			}
 
-			span:first-child {
-				font-size: 2.375rem;
-			}
-
-			span:last-child {
-				opacity: 0.5;
-				position: relative;
-				left: 0.125rem;
-			}
-
 			&--bold {
 				background: white;
 				border-radius: $ascent_border_radius;
 				color: $ascent_tertiary_accent;
 			}
+		}
+
+		&__rating span:first-child {
+			font-size: 2.375rem;
+
+			@include max-device('phone-portrait') {
+				font-size: 2rem;
+			}
+		}
+
+		&__rating span:last-child {
+			opacity: 0.5;
+			position: relative;
+			left: 0.125rem;
 		}
 
 		&__ratings {
@@ -257,6 +319,10 @@
 			@include max-device('tablet') {
 				max-width: none;
 				width: 100%;
+			}
+
+			@include max-device('phone-portrait') {
+				padding: 1.5rem;
 			}
 
 			h3 {
@@ -282,6 +348,18 @@
 			/deep/ ul {
 				list-style: none;
 				padding-left: 1.5rem;
+			}
+		}
+
+		&__terms-link {
+			margin-left: 2rem;
+
+			@include max-device('phone-landscape') {
+				display: block;
+				line-height: 2rem;
+				margin-left: 0;
+				margin-top: 1rem;
+				text-align: center;
 			}
 		}
 	}

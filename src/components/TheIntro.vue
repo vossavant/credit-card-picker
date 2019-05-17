@@ -13,8 +13,28 @@ export default {
 
 <style lang="scss" scoped>
     @import '../scss/variables.scss';
+    @import '../scss/mixins.scss';
 
     h1 {
         font: $ascent_heading_hero;
+
+        @include max-device('tablet') {
+            font-size: 8.25vw;
+        }
+
+        @include max-device('phone-landscape') {
+            font-size: 3rem;
+        }
+
+        @include max-device('phone-vintage') {
+            font-size: 2.5rem;
+            margin-top: 0;
+        }
+    }
+
+    header {
+        @include max-device('phone-vintage') {
+            margin: 1rem 1rem 0;
+        }
     }
 </style>

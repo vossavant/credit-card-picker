@@ -1,22 +1,22 @@
 <template>
 	<section class="cc-list-item">
-		<header class="callout" :class="{ noResults: card1 === null }">
+		<BaseCallout :class="{ noResults: card1 === null }">
 			<h4>Here's What We Found...</h4>
 			<p v-if="intro_text">{{ intro_text }}</p>
 			<div v-if="error_text && error_text !== '<p></p>'" v-html="error_text"></div>
-		</header>
-
+		</BaseCallout>
 		<CreditCard :card="card1" v-if="card1"/>
 		<CreditCard :card="card2" v-if="card2"/>
-
-		<div v-if="cta_text" v-html="cta_text" class="callout"></div>
+		<BaseCallout v-if="cta_text" v-html="cta_text"/>
 	</section>
 </template>
 
 <script>
+	import BaseCallout from "@/components/BaseCallout.vue";
 	import CreditCard from "@/components/CreditCard.vue";
 	export default {
 		components: {
+			BaseCallout,
 			CreditCard
 		},
 		props: {
@@ -47,23 +47,5 @@
 <style lang="scss" scoped>
 	@import "../scss/variables.scss";
 
-	.callout {
-		background: white url("../assets/icon-cards.svg") center left 2rem no-repeat;
-		border: 1px solid $ascent_element_border;
-		border-radius: $ascent_border_radius;
-		box-shadow: $ascent-box-shadow;
-		padding: 2rem 2rem 2rem 8rem;
-
-		h4 {
-			margin-top: 0;
-		}
-
-		/deep/ p:last-child {
-			margin-bottom: 0;
-		}
-
-		&.noResults {
-			background-image: url("../assets/icon-cancel.svg");
-		}
-	}
+	
 </style>

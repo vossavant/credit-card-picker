@@ -15,7 +15,10 @@
 				:options="creditCardRatings"
 			/>
 		</div>
-		<p v-show="selectedType === null || selectedRating === null">Select both options to see some cards!</p>
+		<BaseCallout v-show="selectedType === null || selectedRating === null">
+			<h4>Let's Get Started!</h4>
+			<p>To see our top picks, select your preferred <b>card type</b> and a <b>credit rating</b> from above!</p>
+		</BaseCallout>
 		<CreditCardList
 			v-show="showCards(card)"
 			v-for="(card, index) in creditCards"
@@ -27,6 +30,7 @@
 
 <script>
 	// @ is an alias to /src
+	import BaseCallout from "@/components/BaseCallout.vue";
 	import BasePicker from "@/components/BasePicker.vue";
 	import CreditCardList from "@/components/CreditCardList.vue";
 	import TheIntro from "@/components/TheIntro.vue";
@@ -34,6 +38,7 @@
 
 	export default {
 		components: {
+			BaseCallout,
 			BasePicker,
 			CreditCardList,
 			TheIntro

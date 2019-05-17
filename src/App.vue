@@ -1,31 +1,45 @@
 <template>
 	<div class="ascent-cc-app">
 		<TheIntro />
-		<BasePickerWrapper>
-			<BasePicker
-				@optionSelected="selectedType = $event"
-				icon="https://g.foolcdn.com/static/affiliates/project/images/icons/credit-card-white.svg"
-				label="Search by Card Type"
-				:options="creditCardTypes"
+
+		<div v-if="creditCards">
+			<BasePickerWrapper>
+				<BasePicker
+					@optionSelected="selectedType = $event"
+					icon="https://g.foolcdn.com/static/affiliates/project/images/icons/credit-card-white.svg"
+					label="Search by Card Type"
+					:options="creditCardTypes"
+				/>
+				<BasePicker
+					@optionSelected="selectedRating = $event"
+					icon="https://g.foolcdn.com/static/affiliates/project/images/icons/goals-white.svg"
+					label="Search by Credit Rating"
+					:options="creditCardRatings"
+				/>
+			</BasePickerWrapper>
+			
+			<BaseCallout v-show="!selectedType || !selectedRating">
+				<h4>Let's Get Started!</h4>
+				<p>To see our top picks, select your preferred <b>card type</b> and a <b>credit rating</b> from above!</p>
+			</BaseCallout>
+
+			<CreditCardList
+				v-show="showCards(card)"
+				v-for="(card, index) in creditCards"
+				v-bind="card"
 			/>
-			<BasePicker
-				@optionSelected="selectedRating = $event"
-				icon="https://g.foolcdn.com/static/affiliates/project/images/icons/goals-white.svg"
-				label="Search by Credit Rating"
-				:options="creditCardRatings"
-			/>
-		</BasePickerWrapper>
-		
-		<BaseCallout v-show="selectedType === null || selectedRating === null">
-			<h4>Let's Get Started!</h4>
-			<p>To see our top picks, select your preferred <b>card type</b> and a <b>credit rating</b> from above!</p>
+		</div>
+
+		<BaseCallout v-else :class="loadingCalloutClass">
+			<div v-if="creditCardError">
+				<h4>Oh No!</h4>
+				<div v-html="creditCardError"></div>
+			</div>
+			<div v-else>
+				<h4>Reticulating Splines...</h4>
+				<p>We're fetching our credit card recommendations from the mother ship. Please hang tight!</p>
+			</div>
 		</BaseCallout>
-		<CreditCardList
-			v-show="showCards(card)"
-			v-for="(card, index) in creditCards"
-			v-bind="card"
-		/>
-		<!-- <pre>{{ creditCards }}</pre> -->
 	</div>
 </template>
 
@@ -51,12 +65,21 @@
 		},
 		data() {
 			return {
-				creditCards: {},
+				creditCards: null,
+				creditCardError: null,
 				creditCardRatings: [],
 				creditCardTypes: [],
 				selectedRating: null,
 				selectedType: null
 			};
+		},
+		computed: {
+			loadingCalloutClass() {
+				return {
+					loading: this.creditCardError === null,
+					noResults: this.creditCardError
+				}
+			}
 		},
 		methods: {
 			loadCreditCardData() {
@@ -81,9 +104,9 @@
 							);
 					})
 					.catch(function(error) {
-						self.creditCards =
-							"Something went wrong while fetching the available credit cards: " +
-							error;
+						self.creditCardError =
+							"<p>Something went wrong while fetching the available credit cards: <strong>" +
+							error + '</strong></p>';
 					});
 			},
 

@@ -82,7 +82,6 @@
 				<div v-if="card.rewards_program && card.rewards_program !== 'N/A'">
 					<h3>Rewards</h3>
 					<p>{{ card.rewards_program }}</p>
-					<!-- check for "N/A" and possibly filter out -->
 				</div>
 			</aside>
 		</div>

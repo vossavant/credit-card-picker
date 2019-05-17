@@ -29,6 +29,10 @@
 			margin-bottom: 0;
 		}
 
+		&.loading {
+			background: url('../assets/loader.svg') center left 2.75rem / 2rem no-repeat;
+		}
+
 		&.noResults {
 			background-image: url("../assets/icon-cancel.svg");
 		}

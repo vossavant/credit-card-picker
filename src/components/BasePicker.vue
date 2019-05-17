@@ -11,7 +11,6 @@
 				>{{ addSpacesAndCapitalize(option) }}</option>
 			</select>
 		</label>
-		<p>Selected: {{ selectedOption }}</p>
 	</div>
 	</div>
 </template>
@@ -68,7 +67,7 @@
 
 	select {
 		border-color: $ascent_primary_heading;
-		font-size: 1rem;
+		font: 1rem $ascent_font_stack;
 		height: 2rem;
 		margin: 1rem 0 0;
 		width: 100%;

@@ -1,7 +1,7 @@
 <template>
 	<div class="ascent-cc-app">
 		<TheIntro />
-		<div class="d-flex">
+		<BasePickerWrapper>
 			<BasePicker
 				@optionSelected="selectedType = $event"
 				icon="https://g.foolcdn.com/static/affiliates/project/images/icons/credit-card-white.svg"
@@ -14,7 +14,8 @@
 				label="Search by Credit Rating"
 				:options="creditCardRatings"
 			/>
-		</div>
+		</BasePickerWrapper>
+		
 		<BaseCallout v-show="selectedType === null || selectedRating === null">
 			<h4>Let's Get Started!</h4>
 			<p>To see our top picks, select your preferred <b>card type</b> and a <b>credit rating</b> from above!</p>
@@ -32,6 +33,7 @@
 	// @ is an alias to /src
 	import BaseCallout from "@/components/BaseCallout.vue";
 	import BasePicker from "@/components/BasePicker.vue";
+	import BasePickerWrapper from "@/components/BasePickerWrapper.vue";
 	import CreditCardList from "@/components/CreditCardList.vue";
 	import TheIntro from "@/components/TheIntro.vue";
 	const axios = require("axios");
@@ -40,6 +42,7 @@
 		components: {
 			BaseCallout,
 			BasePicker,
+			BasePickerWrapper,
 			CreditCardList,
 			TheIntro
 		},

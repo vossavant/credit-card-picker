@@ -1,6 +1,6 @@
 <template>
 	<section class="cc-list-item">
-		<header :class="{ matches: card1 }">
+		<header class="callout" :class="{ noResults: card1 === null }">
 			<h4>Here's What We Found...</h4>
 			<p v-if="intro_text">{{ intro_text }}</p>
 			<div v-if="error_text && error_text !== '<p></p>'" v-html="error_text"></div>
@@ -9,7 +9,7 @@
 		<CreditCard :card="card1" v-if="card1"/>
 		<CreditCard :card="card2" v-if="card2"/>
 
-		<p v-if="cta_text" v-html="cta_text"></p>
+		<div v-if="cta_text" v-html="cta_text" class="callout"></div>
 	</section>
 </template>
 
@@ -47,8 +47,8 @@
 <style lang="scss" scoped>
 	@import "../scss/variables.scss";
 
-	header {
-		background: white url("../assets/icon-cancel.svg") center left 2rem no-repeat;
+	.callout {
+		background: white url("../assets/icon-cards.svg") center left 2rem no-repeat;
 		border: 1px solid $ascent_element_border;
 		border-radius: $ascent_border_radius;
 		box-shadow: $ascent-box-shadow;
@@ -62,8 +62,8 @@
 			margin-bottom: 0;
 		}
 
-		&.matches {
-			background-image: url("../assets/icon-cards.svg");
+		&.noResults {
+			background-image: url("../assets/icon-cancel.svg");
 		}
 	}
 </style>

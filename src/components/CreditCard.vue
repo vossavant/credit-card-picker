@@ -12,15 +12,38 @@
 					<h3>Highlights</h3>
 					<p v-html="card.marketing_bullets"></p>
 				</div>
-				<h3>Fees</h3>
-				<p>Annual Fee: {{ card.annual_fee }}</p>
-				<p v-if="card.balance_transfer_fee">Balance Transfer Fee: {{ card.balance_transfer_fee }}</p>
-				<h3>APRs</h3>
-				<p>Regular APR: {{ card.regular_apr }}</p>
-				<p>Intro Purchase APR: {{ card.intro_purchase_apr }}</p>
-				<!-- check for "N/A" and possibly filter out -->
-				<p>Intro Transfer APR: {{ card.intro_transfer_apr }}</p>
-				<!-- check for "N/A" and possibly filter out -->
+				<div>
+					<h3>Fees</h3>
+					<div class="d-flex">
+						<div class="cc-offer__callout cc-offer__callout--half">
+							<h5>Annual Fee:</h5>
+							<p>{{ card.annual_fee }}</p>
+						</div>
+						<div v-if="card.balance_transfer_fee" class="cc-offer__callout cc-offer__callout--half">
+							<h5>Balance Transfer Fee:</h5>
+							<p>{{ card.balance_transfer_fee }}</p>
+						</div>
+					</div>
+				</div>
+				<div>
+					<h3>APRs</h3>
+					<div class="d-flex">
+						<div class="cc-offer__callout cc-offer__callout--third">
+							<h5>Regular APR:</h5> 
+							<p>{{ card.regular_apr }}</p>
+						</div>
+						<div class="cc-offer__callout cc-offer__callout--third">
+							<h5>Intro Purchase APR:</h5> 
+							<p>{{ card.intro_purchase_apr }}</p>
+							<!-- check for "N/A" and possibly filter out -->
+						</div>
+						<div class="cc-offer__callout cc-offer__callout--third">
+							<h5>Intro Transfer APR:</h5> 
+							<p>{{ card.intro_transfer_apr }}</p>
+							<!-- check for "N/A" and possibly filter out -->
+						</div>
+					</div>
+				</div>
 				<a v-if="card.affiliate_link" :href="card.affiliate_link">Apply Now</a>
 				<a
 					v-if="card.terms_and_conditions_link"
@@ -70,7 +93,8 @@
 	}
 
 	h3 {
-		color: inherit;
+		border-bottom: 2px solid transparentize($ascent_primary_heading, 0.9);
+		padding-bottom: 0.25rem;
 	}
 
 	img {
@@ -85,6 +109,29 @@
 		margin: 2rem 0;
 		overflow: hidden;
 
+		&__callout {
+			background: transparentize($ascent_tertiary_accent, 0.95);
+			border-radius: $ascent_border-radius;
+			padding: 1rem;
+
+			h5 {
+				font-weight: 700;
+				margin-top: 0;
+			}
+
+			p {
+				margin: inherit;
+			}
+
+			&--half {
+				width: 49%;
+			}
+
+			&--third {
+				width: 32%;
+			}
+		}
+		
 		&__details {
 			max-width: 65%;
 			padding: 2rem;
@@ -96,6 +143,11 @@
 			max-width: 35%;
 			padding: 2rem;
 
+			h3 {
+				border-bottom: 2px solid transparentize(white, 0.75);
+				color: inherit;
+			}
+			
 			/deep/ li {
 				line-height: 2rem;
 				list-style-image: url('../assets/icon-thumb.svg');

@@ -264,11 +264,11 @@
 		}
 
 		&__details {
-			max-width: 65%;
+			width: 65%;
 			padding: 2rem;
 
 			@include max-device("tablet") {
-				max-width: none;
+				width: 100%;
 			}
 
 			@include max-device("phone-portrait") {
@@ -339,11 +339,10 @@
 		&__supplemental {
 			background: $ascent_tertiary_accent;
 			color: white;
-			max-width: 35%;
+			width: 35%;
 			padding: 2rem;
 
 			@include max-device("tablet") {
-				max-width: none;
 				width: 100%;
 			}
 

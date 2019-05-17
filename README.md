@@ -5,8 +5,11 @@ This simple Vue.js app pulls credit card information from The Ascent's API and a
 
 ## Installation
 
-*   Step 1
-*   Step 2
+1. Open your terminal and navigate to the app's root folder. 
+2. If needed, modify the `vue.config.js` file to set your **publicPath**. In most cases, you can leave this as the default `/`, which assumes this app will be running in the root directory of your server. More information in the [Vue CLI docs](https://cli.vuejs.org/config/#publicpath).
+3. Type `npm run build`
+4. Upload the **dist** folder to your web server
+5. Enter the appropriate URL and the app should load.
 
 
 ## Design Rationale

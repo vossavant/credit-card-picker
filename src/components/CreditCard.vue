@@ -5,12 +5,12 @@
 				<h1>{{ card.offer_name }}</h1>
 				<div v-if="card.bottom_line && card.bottom_line !== '<p></p>'">
 					<h3>Our Bottom Line</h3>
-					{{ card.bottom_line }}
+					<div v-html="card.bottom_line"></div>
 				</div>
 				<a v-if="card.review_url" :href="card.review_url">Read Full Review</a>
 				<div v-if="card.marketing_bullets">
 					<h3>Highlights</h3>
-					<p v-html="card.marketing_bullets"></p>
+					<div v-html="card.marketing_bullets"></div>
 				</div>
 				<div>
 					<h3>Fees</h3>
@@ -35,19 +35,18 @@
 						<div class="cc-offer__callout cc-offer__callout--third">
 							<h5>Intro Purchase APR:</h5> 
 							<p>{{ card.intro_purchase_apr }}</p>
-							<!-- check for "N/A" and possibly filter out -->
 						</div>
 						<div class="cc-offer__callout cc-offer__callout--third">
 							<h5>Intro Transfer APR:</h5> 
 							<p>{{ card.intro_transfer_apr }}</p>
-							<!-- check for "N/A" and possibly filter out -->
 						</div>
 					</div>
 				</div>
-				<a v-if="card.affiliate_link" :href="card.affiliate_link">Apply Now</a>
+				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" topSpacing="2rem" text="Apply Now!" />
 				<a
 					v-if="card.terms_and_conditions_link"
 					:href="card.terms_and_conditions_link"
+				 	:style="{ marginLeft: '2rem' }"
 				>Terms and Conditions</a>
 			</div>
 			<aside class="cc-offer__supplemental">
@@ -76,8 +75,12 @@
 </template>
 
 <script>
+	import BaseButton from "@/components/BaseButton.vue";
+
 	export default {
-		name: "CreditCard",
+		components: {
+			BaseButton
+		},
 		props: {
 			card: Object
 		}

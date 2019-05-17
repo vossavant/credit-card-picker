@@ -3,6 +3,11 @@
 		<TheIntro />
 
 		<div v-if="creditCards">
+			<BaseCallout v-show="!selectedType || !selectedRating">
+				<h4>Let's Get Started!</h4>
+				<p>To see our top picks, select your preferred <b>card type</b> and a <b>credit rating</b> from below!</p>
+			</BaseCallout>
+
 			<BasePickerWrapper>
 				<BasePicker
 					@optionSelected="selectedType = $event"
@@ -17,16 +22,12 @@
 					:options="creditCardRatings"
 				/>
 			</BasePickerWrapper>
-			
-			<BaseCallout v-show="!selectedType || !selectedRating">
-				<h4>Let's Get Started!</h4>
-				<p>To see our top picks, select your preferred <b>card type</b> and a <b>credit rating</b> from above!</p>
-			</BaseCallout>
 
 			<CreditCardList
 				v-show="showCards(card)"
 				v-for="(card, index) in creditCards"
 				v-bind="card"
+				:key="index"
 			/>
 		</div>
 

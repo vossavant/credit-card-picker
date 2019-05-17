@@ -17,5 +17,19 @@
     .d-flex {
         display: flex;
         justify-content: space-between;
+
+        @include max-device('tablet') {
+            &.stack-on-tablet {
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    .show-on-tablet {
+        display: none;
+
+        @include max-device('tablet') {
+            display: block;
+        }
     }
 }

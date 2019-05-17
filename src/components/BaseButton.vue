@@ -21,6 +21,7 @@ export default {
 
 <style lang="scss" scoped>
     @import '../scss/variables.scss';
+    @import '../scss/mixins.scss';
 
     a {
         background: $ascent_secondary_cta;
@@ -33,6 +34,13 @@ export default {
         margin-top: 2rem;
         padding: 0 3rem;
         transition: background 250ms ease-in-out, box-shadow 250ms ease-in-out, transform 250ms ease-in-out;
+
+        @include max-device('phone-landscape') {
+            line-height: 4rem;
+            margin-top: 1rem;
+            text-align: center;
+            width: 100%;
+        }
 
         &:hover {
             background: darken($ascent_secondary_cta, 5%);

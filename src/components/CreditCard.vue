@@ -1,8 +1,13 @@
 <template>
 	<article class="cc-offer">
-		<div class="d-flex">
+		<div class="d-flex stack-on-tablet">
 			<div class="cc-offer__details">
-				<h1>{{ card.offer_name }}</h1>
+				<header>
+					<h1>{{ card.offer_name }}</h1>
+					<div>
+						<img class="show-on-tablet" :src="card.offer_image" :alt="card.offer_name">
+					</div>
+				</header>
 				<div v-if="card.bottom_line && card.bottom_line !== '<p></p>'">
 					<h3>Our Bottom Line</h3>
 					<div v-html="card.bottom_line"></div>
@@ -42,7 +47,7 @@
 						</div>
 					</div>
 				</div>
-				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" topSpacing="2rem" text="Apply Now »" />
+				<BaseButton v-if="card.affiliate_link" :link="card.affiliate_link" text="Apply Now »" />
 				<a
 					v-if="card.terms_and_conditions_link"
 					:href="card.terms_and_conditions_link"
@@ -103,15 +108,31 @@
 
 <style lang="scss" scoped>
 	@import "../scss/variables.scss";
+	@import "../scss/mixins.scss";
 	
 	h1 {
 		font: $ascent_heading_h2;
 		margin-top: 0;
+
+		@include max-device('tablet') {
+			font-size: 4.9vw;
+			min-width: 66%;
+    		padding-right: 2rem;
+		}
+
+		@include max-device('phone-landscape') {
+			font-size: 1.75rem;
+		}
 	}
 
 	h3 {
 		border-bottom: 2px solid transparentize($ascent_primary_heading, 0.9);
 		padding-bottom: 0.25rem;
+
+		@include max-device('phone-landscape') {
+			font-size: 1.25rem;
+    		line-height: 2rem;
+		}
 
 		&.has-icon {
 			background: url('../assets/icon-trophy.svg') top right / 32px no-repeat;
@@ -127,9 +148,19 @@
 		}
 	}
 
+	header {
+		@include max-device('tablet') {
+			display: flex;
+		}
+	}
+
 	img {
 		border-radius: 1rem;
 		box-shadow: $ascent_box_shadow;
+
+		@include max-device('tablet') {
+			border-radius: 0.5rem;
+		}
 	}
 
 	.cc-offer {
@@ -165,11 +196,27 @@
 		&__details {
 			max-width: 65%;
 			padding: 2rem;
+
+			@include max-device('tablet') {
+				max-width: none;
+			}
+
+			/deep/ li {
+				margin-bottom: 0.5rem;
+			}
+
+			/deep/ li:last-child {
+				margin-bottom: 0;
+			}
 		}
 
 		&__rating {
 			padding: 0.5rem;
 			width: 30%;
+
+			@include max-device('tablet') {
+				padding: 1rem;
+			}
 
 			div {
 				letter-spacing: -0.05em;
@@ -207,6 +254,11 @@
 			max-width: 35%;
 			padding: 2rem;
 
+			@include max-device('tablet') {
+				max-width: none;
+				width: 100%;
+			}
+
 			h3 {
 				border-bottom: 2px solid transparentize(white, 0.75);
 				color: inherit;
@@ -214,6 +266,12 @@
 
 			h5 {
 				color: inherit;
+			}
+
+			img {
+				@include max-device('tablet') {
+					display: none;
+				}
 			}
 			
 			/deep/ li {

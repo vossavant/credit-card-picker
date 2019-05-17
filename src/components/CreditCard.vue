@@ -51,10 +51,25 @@
 			</div>
 			<aside class="cc-offer__supplemental">
 				<img :src="card.offer_image" :alt="card.offer_name">
-				<div class="d-flex">
-					<p>APR: {{ card.aprs_rating }} / 5</p>
-					<p>Fees: {{ card.fees_rating }} / 5</p>
-					<p>Overall: {{ card.star_rating }} / 5</p>
+				<div class="d-flex cc-offer__ratings">
+					<div class="cc-offer__rating cc-offer__rating--bold">
+						<h5>Overall</h5>
+						<div>
+							<span>{{ card.star_rating.toFixed(1) }}</span> <span>/ 5</span>
+						</div>
+					</div>
+					<div class="cc-offer__rating">
+						<h5>APR</h5>
+						<div>
+							<span>{{ card.aprs_rating.toFixed(1) }}</span> <span>/ 5</span>
+						</div>
+					</div>
+					<div class="cc-offer__rating">
+						<h5>Fees</h5> 
+						<div>
+							<span>{{ card.fees_rating.toFixed(1) }}</span> <span>/ 5</span>
+						</div>
+					</div>
 				</div>
 				<div v-if="card.what_we_like">
 					<h3>What We Like</h3>
@@ -153,6 +168,40 @@
 			padding: 2rem;
 		}
 
+		&__rating {
+			padding: 0.5rem;
+			width: 30%;
+
+			div {
+				letter-spacing: -0.05em;
+				margin: 0;
+			}
+
+			h5 {
+				margin: 0;
+			}
+
+			span:first-child {
+				font-size: 2.375rem;
+			}
+
+			span:last-child {
+				opacity: 0.5;
+				position: relative;
+				left: 0.125rem;
+			}
+
+			&--bold {
+				background: white;
+				border-radius: $ascent_border_radius;
+				color: $ascent_tertiary_accent;
+			}
+		}
+
+		&__ratings {
+			margin-top: 1rem;
+		}
+
 		&__supplemental {
 			background: $ascent_tertiary_accent;
 			color: white;
@@ -161,6 +210,10 @@
 
 			h3 {
 				border-bottom: 2px solid transparentize(white, 0.75);
+				color: inherit;
+			}
+
+			h5 {
 				color: inherit;
 			}
 			

@@ -1,6 +1,10 @@
 .ascent-cc-app {
     margin: 2rem auto;
-    max-width: 1024px;
+    max-width: $ascent_app_width;
+
+    @include max-device('large-desktop') {
+        margin: 2rem;
+    }
 
     img {
         max-width: 100%;

@@ -1,0 +1,8 @@
+// courtesy Enmanuel Durán @ https://enmascript.com/articles/2018/09/28/another-approach-to-media-queries-with-sass
+@mixin max-device($device: map-get($devices, 'phone')) {
+    @if map-has-key($devices, $device) {
+        @media screen and (max-width: map-get($devices, $device) - 1) {
+            @content;
+        }
+    }
+}

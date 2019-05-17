@@ -17,5 +17,13 @@ $ascent_heading_h4          : 400 1.25rem/1.2 $ascent_font_stack;
 $ascent_heading_h5          : 400 1rem/1.5 $ascent_font_stack;
 $ascent_heading_h6          : 700 0.875rem/1.1429 $ascent_font_stack;
 
+$ascent_app_width           : 1024px;
 $ascent_border_radius       : 6px;
 $ascent_box_shadow          : 0 18px 20px transparentize(black, 0.8);
+
+$devices: (
+    phone: 480px,
+    tablet: 768px,
+    desktop: 992px,
+    large-desktop: $ascent_app_width + 33px
+);

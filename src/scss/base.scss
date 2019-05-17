@@ -1,10 +1,15 @@
 @import "variables.scss";
+@import "mixins.scss";
 @import "globals.scss";
 
 *,
 *::after,
 *::before {
     box-sizing: border-box;
+}
+
+html {
+    font-size: $ascent_font_rem;
 }
 
 a {

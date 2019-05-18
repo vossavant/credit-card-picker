@@ -211,6 +211,7 @@
 		box-shadow: $ascent-box-shadow;
 		margin: 2rem 0;
 		overflow: hidden;
+		transition: box-shadow 250ms ease-in-out;
 
 		@include max-device("tablet") {
 			box-shadow: $ascent_box_shadow_tablet;
@@ -220,6 +221,10 @@
 		@include max-device("phone-vintage") {
 			box-shadow: none;
 			border-radius: 0;
+		}
+
+		&:hover {
+			box-shadow: $ascent_box_shadow_hover;
 		}
 
 		&__callout {

@@ -71,6 +71,7 @@
 		margin: 0 1rem;
 		padding: 2rem;
 		text-align: center;
+		transition: background 250ms ease-in-out, box-shadow 250ms ease-in-out;
 
 		@include max-device("tablet") {
 			box-shadow: $ascent_box_shadow_tablet;
@@ -87,6 +88,11 @@
 			box-shadow: none;
 			margin: 0 0 1px;
 			text-align: left;
+		}
+
+		&:hover {
+			background: darken($ascent_primary, 10%);
+			box-shadow: $ascent_box_shadow_hover;
 		}
 	}
 

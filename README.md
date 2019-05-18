@@ -1,3 +1,5 @@
+![alt text](https://www.ryanburney.com/projects/ascent-cc-picker/img/logo@2x.93f7b357.png "The Ascent (by Motley Fool) Logo")
+
 # Credit Card Picker
 
 This simple Vue.js app pulls credit card information from The Ascent's API and allows users to filter down to one or two cards by selecting a card type and a credit score.

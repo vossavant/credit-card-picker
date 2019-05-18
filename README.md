@@ -14,13 +14,13 @@ This simple Vue.js app pulls credit card information from The Ascent's API and a
 
 ## Design Rationale
 
-* I decided to request data from the API as soon as the app is loaded, primarily because I assume the component has a high likelihood of being used wherever it is placed, and because I wanted the most optimal user experience. The API request is small and shouldn't block the user, but I wanted to avoid any potential frustration on the user's part (i.e., seeing a faillure after they make selections, or having to wait after making selections). Snappiness was priority #1!
+* For optimum speed, I elected to load credit card data from the API once the app is loaded, rather than when the user first interacts with the app controls. My rationale here is that the user would have a better experience if the card picker had either zero delay or told the user ahead of time that it wasn't working (i.e., couldn't fetch results). Snappiness was priority #1!
 
-* It would be possible to show results if the user only chose one option (that is, either **card type** or **credit rating**) but these results wouldn't be as useful, so I decided to require both options to be selected before showing any card offers.
+* I decided to require both the **card type** and **credit rating** options to be selected before showing any card offers, since this returns the best results for that user. No sense in showing cash back cards if the user won't qualify for some of them.
 
-* Each card has some ratings (out of a possible high of 5). I played around with showing progress-style indicators and using stars, but ultimately felt that numbers had the lowest cognitive load. In other words, I personally found numbers like **4/5** to be easier to understand at a glance. I also see this is how cards are currently scored on the [Ascent's website](https://www.fool.com/the-ascent/api/creditcardrecommendations/).
+* I decided that numbers (e.g., *4/5*) had less cognitive load than stars or progress indicators, so I kept the same convention you currently have on the [Ascent website](https://www.fool.com/the-ascent/api/creditcardrecommendations/).
 
-* CTA buttons are placed at the bottom of each card offer (except on mobile at 480px and below) because I think the logical flow for a user is to learn about the card and *then* want to apply, vs. being given the option to apply too early. I show an additional button near the top on mobile because more scrolling is required on smaller screens to see the CTA. I figured more conversion options on mobile would make more business sense since mobile users are less likely to find the "apply" button.
+* I placed CTA buttons at the bottom of each offer because I feel it is more logical for the user to learn about the card before taking action. On mobile (screens at and below 480px), I added a second CTA because I felt the additional scrolling distance required it.
 
 
 ## Ephemera

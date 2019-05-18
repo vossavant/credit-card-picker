@@ -18,15 +18,15 @@ This simple Vue.js app pulls credit card information from The Ascent's API and a
 
 * I decided to require both the **card type** and **credit rating** options to be selected before showing any card offers, since this returns the best results for that user. No sense in showing cash back cards if the user won't qualify for some of them.
 
-* I decided that numbers (e.g., *4/5*) had less cognitive load than stars or progress indicators, so I kept the same convention you currently have on the [Ascent website](https://www.fool.com/the-ascent/api/creditcardrecommendations/).
+* For card ratings, I decided that numbers (e.g., *4/5*) had less cognitive load than stars or progress indicators, so I kept the same convention you currently have on the [Ascent website](https://www.fool.com/the-ascent/api/creditcardrecommendations/).
 
-* I placed CTA buttons at the bottom of each offer because I feel it is more logical for the user to learn about the card before taking action. On mobile (screens at and below 480px), I added a second CTA because I felt the additional scrolling distance required it.
+* I placed the CTA button at the bottom of each offer because I feel it is more logical for the user to learn about the card before taking action. On mobile (screens at and below 480px), I added a second CTA near the top to account for the additional scrolling distance.
 
 
 ## Ephemera
 
-* Tested in latest versions of Chrome, Firefox, Safari, and Edge
-* Bonus! Tested in IE11
+* Tested in the latest versions of Chrome, Firefox, Safari, and Edge
+* Bonus: Tested in IE11
 * You should see a message if the API call throws an error
 * Optimized for mobile devices down to 320px
 

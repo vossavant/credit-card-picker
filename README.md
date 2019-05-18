@@ -1,4 +1,4 @@
-![alt text](https://www.ryanburney.com/projects/ascent-cc-picker/img/logo@2x.93f7b357.png "The Ascent (by Motley Fool) Logo")
+![](https://www.ryanburney.com/projects/ascent-cc-picker/img/logo@2x.93f7b357.png =200x)
 
 # Credit Card Picker
 

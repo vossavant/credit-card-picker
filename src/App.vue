@@ -67,9 +67,11 @@
 			CreditCardList,
 			TheIntro
 		},
+
 		created() {
 			this.loadCreditCardData();
 		},
+
 		data() {
 			return {
 				creditCards: null,
@@ -80,6 +82,7 @@
 				selectedType: null
 			};
 		},
+
 		computed: {
 			loadingCalloutClass() {
 				return {
@@ -88,26 +91,23 @@
 				}
 			}
 		},
+
 		methods: {
 			loadCreditCardData() {
 				let self = this;
 				axios
-					.get("https://www.fool.com/the-ascent/api/creditcardrecommendations/")
+					.get("https://www.ryanburney.com/projects/ascent-cc-picker/credit-cards.json")
 					.then(function(response) {
 						self.creditCards = response.data;
-						// self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))]; // preferred, but doesn't work in IE11
-						self.creditCardTypes = response.data
-							.map(card => card.card_type)
-							.filter(
-								(value, index, self) =>
-									self.indexOf(value) === index
-							);
-						self.creditCardRatings = response.data
-							.map(card => card.credit_rating)
-							.filter(
-								(value, index, self) =>
-									self.indexOf(value) === index
-							);
+						self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))];
+						self.creditCardRatings = [...new Set(response.data.map(card => card.credit_rating))];
+						// use the below method if IE11 support is required
+						// self.creditCardTypes = response.data
+						// 	.map(card => card.card_type)
+						// 	.filter(
+						// 		(value, index, self) =>
+						// 			self.indexOf(value) === index
+						// 	);
 					})
 					.catch(function(error) {
 						self.creditCardError =

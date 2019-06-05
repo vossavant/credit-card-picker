@@ -1,8 +1,8 @@
-<img src="https://www.ryanburney.com/projects/ascent-cc-picker/img/logo@2x.93f7b357.png" alt="The Ascent (by Motley Fool) Logo" width="200">
+<img src="https://www.ryanburney.com/projects/ascent-cc-picker/img/logo@2x.93f7b357.png" alt="The Ascent Logo" width="200">
 
 # Credit Card Picker
 
-This simple Vue.js app pulls credit card information from The Ascent's API and allows users to filter down to one or two cards by selecting a card type and a credit score.
+I wrote this simple Vue.js app as part of an interview process with a well-known financial services company. It pulls credit card information from a JSON file and allows users to filter down to one or two cards by selecting a card type and a credit score. The app originally pulled data from an API, but I localized the data so the app can work if the API changes in the future.
 
 
 ## Installation
@@ -31,9 +31,3 @@ This simple Vue.js app pulls credit card information from The Ascent's API and a
 * Bonus: Tested in IE11
 * You should see a message if the API call throws an error
 * Optimized for mobile devices down to 320px
-
-
-**Thanks so much for this opportunity!**
-
-
-<!-- Docs to Markdown version 1.0β17 -->

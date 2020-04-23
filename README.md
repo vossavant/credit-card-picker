@@ -1,5 +1,3 @@
-<img src="https://www.ryanburney.com/projects/ascent-cc-picker/img/logo@2x.93f7b357.png" alt="The Ascent Logo" width="200">
-
 # Credit Card Picker
 
 I wrote this simple Vue.js app as part of an interview process with a well-known financial services company. It pulls credit card information from a JSON file and allows users to filter down to one or two cards by selecting a card type and a credit score. The app originally pulled data from an API, but I localized the data so the app can work if the API changes in the future.

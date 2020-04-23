@@ -5,7 +5,7 @@
 	so it is ready when the user wants to make a selection.
 -->
 <template>
-	<div class="ascent-cc-app">
+	<div class="acme-cc-app">
 		<TheIntro />
 
 		<div v-if="creditCards">
@@ -96,7 +96,8 @@
 			loadCreditCardData() {
 				let self = this;
 				axios
-					.get("https://www.ryanburney.com/projects/ascent-cc-picker/credit-cards.json")
+					// .get("https://www.ryanburney.com/projects/acme-cc-picker/credit-cards.json")
+					.get("http://localhost:8081/credit-cards.json")
 					.then(function(response) {
 						self.creditCards = response.data;
 						self.creditCardTypes = [...new Set(response.data.map(card => card.card_type))];

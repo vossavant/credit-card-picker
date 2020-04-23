@@ -18,7 +18,7 @@ I wrote this simple Vue.js app as part of an interview process with a well-known
 
 * I decided to require both the **card type** and **credit rating** options to be selected before showing any card offers, since this returns the best results for that user. No sense in showing cash back cards if the user won't qualify for some of them.
 
-* For card ratings, I decided that numbers (e.g., *4/5*) had less cognitive load than stars or progress indicators, so I kept the same convention you currently have on the [Ascent website](https://www.fool.com/the-ascent/api/creditcardrecommendations/).
+* For card ratings, I decided that numbers (e.g., *4/5*) had less cognitive load than stars or progress indicators, so I kept the same convention currently used on the financial institution's website.
 
 * I placed the CTA button at the bottom of each offer because I feel it is more logical for the user to learn about the card before taking action. On mobile (screens at and below 480px), I added a second CTA near the top to account for the additional scrolling distance.
 

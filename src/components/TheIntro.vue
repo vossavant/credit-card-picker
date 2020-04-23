@@ -5,11 +5,11 @@
 -->
 <template>
 	<header>
-		<img src="@/assets/logo@2x.png" width="200">
+		<img src="@/assets/logo@2x.svg" width="220">
 		<h1>Credit Card Picker</h1>
 		<p
 			class="intro-p"
-		>We've vetted hundreds of credit cards to bring you the select few leaders in their categories. Check out our top picks by category, some of which are from our partners, to find the best credit card to suit your needs.</p>
+		>At Acme Finance, we take your spending habits seriously. That's why we've vetted oodles of credit cards and presented only the very finest to you in each category, so that — no matter your creditworthiness — you can find something to fit your spending habits.</p>
 	</header>
 </template>
 
